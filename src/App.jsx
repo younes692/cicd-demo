@@ -6,7 +6,7 @@ const STAGES = [
     id: 'lint',
     label: 'Lint',
     icon: '🔍',
-    tooltip: 'yeahhh',
+    tooltip: 'test',
   },
   {
     id: 'tests',
