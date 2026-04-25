@@ -7,14 +7,13 @@ describe('App component', () => {
     expect(container).toBeTruthy();
   });
 
-  test('displays the page title "CI/CD Pipeline Demo"', () => {
+  test('displays the Hello World heading', () => {
     render(<App />);
-    expect(screen.getByText('CI/CD Pipeline Demo')).toBeInTheDocument();
+    expect(screen.getByText('Hello World')).toBeInTheDocument();
   });
 
-  test('renders exactly 7 pipeline stage nodes', () => {
+  test('displays the subtitle text', () => {
     render(<App />);
-    const nodes = screen.getAllByTestId('pipeline-node');
-    expect(nodes).toHaveLength(7);
+    expect(screen.getByText('My first CI/CD pipeline')).toBeInTheDocument();
   });
 });

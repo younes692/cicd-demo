@@ -1,18 +1,37 @@
-*,
-*::before,
-*::after {
+:root {
+  --color-bg: #0f172a;
+  --color-primary: #6366f1;
+  --color-text: #f1f5f9;
+  --color-subtle: #94a3b8;
+}
+
+* {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
 body {
-  background-color: #0a0e1a;
-  color: #e0e6f0;
-  font-family:
-    'Segoe UI',
-    system-ui,
-    -apple-system,
-    sans-serif;
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  font-family: system-ui, sans-serif;
   min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.container {
+  text-align: center;
+}
+
+h1 {
+  font-size: 3rem;
+  color: var(--color-primary);
+  margin-bottom: 1rem;
+}
+
+p {
+  color: var(--color-subtle);
+  font-size: 1.1rem;
 }
