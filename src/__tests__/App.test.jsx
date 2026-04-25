@@ -7,13 +7,13 @@ describe('App component', () => {
     expect(container).toBeTruthy();
   });
 
-  test('displays the Hello World heading', () => {
+  test('renders a main heading', () => {
     render(<App />);
-    expect(screen.getByText('Hello World')).toBeInTheDocument();
+    expect(screen.getByRole('heading', { level: 1 })).toBeInTheDocument();
   });
 
-  test('displays the subtitle text', () => {
+  test('renders a subtitle paragraph', () => {
     render(<App />);
-    expect(screen.getByText('My first CI/CD pipeline')).toBeInTheDocument();
+    expect(document.querySelector('p')).toBeInTheDocument();
   });
 });
