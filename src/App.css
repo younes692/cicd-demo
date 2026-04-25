@@ -1,0 +1,252 @@
+/* ── Hero ─────────────────────────────────────────────── */
+.app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 3rem 1.5rem 2rem;
+  background: #0a0e1a;
+}
+
+.hero {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.hero-title {
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 800;
+  letter-spacing: 0.03em;
+  background: linear-gradient(135deg, #00f5a0, #00d9f5);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: fadeInDown 0.9s ease both;
+}
+
+.hero-subtitle {
+  margin-top: 0.75rem;
+  font-size: 1.1rem;
+  color: #7b8fad;
+  animation: fadeInDown 1.1s ease both;
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ── Pipeline ─────────────────────────────────────────── */
+.pipeline-section {
+  width: 100%;
+  max-width: 1100px;
+  margin-bottom: 3.5rem;
+}
+
+.pipeline-heading {
+  text-align: center;
+  font-size: 0.8rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: #4a5f7a;
+  margin-bottom: 2rem;
+}
+
+.pipeline {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0;
+}
+
+/* ── Node ─────────────────────────────────────────────── */
+.node-wrapper {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.node {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 110px;
+  height: 82px;
+  border-radius: 12px;
+  border: 1.5px solid #1e3a5f;
+  background: #0f1829;
+  cursor: pointer;
+  transition:
+    border-color 0.25s,
+    box-shadow 0.25s;
+  animation: nodeReveal 0.6s ease both;
+}
+
+.node:hover {
+  border-color: #00f5a0;
+  box-shadow: 0 0 18px rgba(0, 245, 160, 0.35);
+  animation: nodePulse 1s ease infinite;
+}
+
+@keyframes nodeReveal {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes nodePulse {
+  0%,
+  100% {
+    box-shadow: 0 0 14px rgba(0, 245, 160, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 28px rgba(0, 245, 160, 0.65);
+  }
+}
+
+.node-icon {
+  font-size: 1.5rem;
+  line-height: 1;
+  margin-bottom: 4px;
+}
+
+.node-label {
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #a8c0d6;
+}
+
+/* ── Tooltip ──────────────────────────────────────────── */
+.tooltip {
+  position: absolute;
+  bottom: calc(100% + 10px);
+  left: 50%;
+  transform: translateX(-50%);
+  background: #112240;
+  border: 1px solid #1e4080;
+  color: #c8daf0;
+  font-size: 0.72rem;
+  line-height: 1.4;
+  padding: 0.5rem 0.75rem;
+  border-radius: 8px;
+  white-space: nowrap;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.2s;
+  z-index: 10;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+}
+
+.node:hover .tooltip {
+  opacity: 1;
+}
+
+/* ── Arrow ────────────────────────────────────────────── */
+.arrow {
+  display: flex;
+  align-items: center;
+  width: 36px;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.arrow-line {
+  height: 2px;
+  width: 100%;
+  background: linear-gradient(90deg, #00f5a0, #00d9f5, #00f5a0);
+  background-size: 200% 100%;
+  animation: flow 1.6s linear infinite;
+  border-radius: 1px;
+}
+
+.arrow-head {
+  width: 0;
+  height: 0;
+  border-top: 5px solid transparent;
+  border-bottom: 5px solid transparent;
+  border-left: 8px solid #00d9f5;
+  flex-shrink: 0;
+}
+
+@keyframes flow {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: 0% 0;
+  }
+}
+
+/* ── Status Banner ────────────────────────────────────── */
+.status-banner {
+  width: 100%;
+  max-width: 600px;
+  margin-top: auto;
+  text-align: center;
+  padding: 1.2rem 2rem;
+  border-radius: 12px;
+  border: 1px solid #1a3a5c;
+  background: #0d1b30;
+  position: relative;
+  overflow: hidden;
+}
+
+.status-label {
+  font-size: 0.7rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: #4a5f7a;
+  margin-bottom: 0.5rem;
+}
+
+.status-message {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: #00f5a0;
+  animation: statusFade 0.5s ease;
+}
+
+@keyframes statusFade {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.status-bar {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #00f5a0, #00d9f5);
+  animation: progressBar 4s linear infinite;
+}
+
+@keyframes progressBar {
+  from {
+    width: 0%;
+  }
+  to {
+    width: 100%;
+  }
+}
