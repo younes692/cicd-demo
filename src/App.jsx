@@ -6,7 +6,7 @@ const STAGES = [
     id: 'lint',
     label: 'Lint',
     icon: '🔍',
-    tooltip: 'ESLint --- Test DEMO --- checks code for style errors and potential bugs.',
+    tooltip: 'DEMO text',
   },
   {
     id: 'tests',
